@@ -3,17 +3,60 @@
 <head>
     <title>Project page</title>
     <meta charset="UTF-8">
+    <script>
+        var Body = {
+            setNight : function(self){
+                document.querySelector('body').style.backgroundColor = 'black';
+                document.querySelector("body").style.color = 'white';
+                A.Ncolor();
+            },
+            setDay : function(self){
+                document.querySelector('body').style.backgroundColor = 'white';
+                document.querySelector("body").style.color = 'black';
+                A.Dcolor();
+            }
+        };
+        var A = {
+            Ncolor : function(self){
+                for (var i =0;i<document.querySelectorAll('a').length;i++){
+                    document.querySelector('a').style.color = 'powderblue'
+                }
+            },
+            Dcolor : function(self){
+                for (var i =0;i<document.querySelectorAll('a').length;i++){
+                    document.querySelector('a').style.color = 'blue'
+                }
+            }
+        }
+        var nightDayHandler = function(self){
+            if(self.value === "야간모드"){
+                Body.setNight();
+                self.value = "주간모드";
+            } else{
+                Body.setDay();
+                self.value = "야간모드";
+            }
+        }
+
+    </script>
+    
+
 </head>
 <body>
     <header>
         <div class="title" style="background-color: aqua; width:400px; height:100%;" ><h1> 연구실 웹페이지 만들기 </h1></div>
     </header>
+    <input type="button" value="야간모드" onclick="
+        nightDayHandler(this);
+    ">
     <div class="로그인" style="float:right; ">
-        <form >
-            아이디 : <input type="text" name="ID" />
-            패스워드 : <input type="password" name="password" />
-            <input type="submit" value="로그인" />
-            <input type="url" value="회원가입" />
+        <form action = '#' accept-charset = "utf-8" name = "person_info" method = "get">
+            <fieldset style = "width:150">
+                아이디 : <input type="text" name="ID" />
+                패스워드 : <input type="password" name="password" />
+                <input type="submit" value="로그인" />
+                <input type="url" value="회원가입" />
+            </fieldset>
         </form>
         <br>
     </div>
